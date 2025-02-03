@@ -1,5 +1,6 @@
 import MainLayout from "@/components/layout/mainLayout";
 import About from "@/pages/About";
+import Cars from "@/pages/Cars";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
@@ -19,6 +20,10 @@ const router=createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+            },
+            {
+                path: "/cars",
+                element: <Cars />,
             },
             {
                 path: "/login",

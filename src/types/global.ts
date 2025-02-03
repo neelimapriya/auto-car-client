@@ -8,6 +8,10 @@ export type formValues = {
   phone: string;
   address: string;
 };
+export type  formValuesLogin= {
+  email: string;
+  password: string;
+}
 export type TError = {
   data: {
     message: string;

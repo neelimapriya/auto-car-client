@@ -87,28 +87,7 @@ const Navbar: FC = () => {
                 Home
               </NavLink>
             </li>
-            <li className="max-lg:border-b max-lg:py-3 px-3 hover:text-rose-700">
-              <NavLink
-                to="/bikes"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Bikes
-              </NavLink>
-            </li>
-            <li className="max-lg:border-b max-lg:py-3 px-3 hover:text-rose-700">
-              <NavLink
-                to="/comparison"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                Comparison
-              </NavLink>
-            </li>
+         
 
             <li className="max-lg:border-b max-lg:py-3 px-3 hover:text-rose-700">
               <NavLink
@@ -130,6 +109,17 @@ const Navbar: FC = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us
+              </NavLink>
+            </li>
+            <li className="max-lg:border-b max-lg:py-3 px-3 hover:text-rose-700">
+              <NavLink
+                to="/cars"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                Cars
               </NavLink>
             </li>
             {!token && (
