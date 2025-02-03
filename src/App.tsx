@@ -1,15 +1,12 @@
-
-import { Button } from "./components/ui/button"
-import { Progress } from "./components/ui/progress"
-
+import { Button } from "./components/ui/button";
 
 const App = () => {
   return (
-    <div className="p-5 space-y-2 bg-gray-100">
-      <Button>Click me</Button>
-      <Progress value={33} />
+    <div className="p-5 space-y-2 bg-gray-100 ">
+      <h1 className=" text-red-600">hello</h1>
+      <Button >submit</Button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
