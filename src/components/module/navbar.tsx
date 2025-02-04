@@ -107,7 +107,7 @@ const Navbar: FC = () => {
 
                         <li className="max-lg:border-b max-lg:py-3 px-3">
                             <NavLink
-                                to="/about-us"
+                                to="/about"
                                 className={({ isActive }) =>
                                     isActive ? "nav-link active" : "nav-link"
                                 }
@@ -118,7 +118,7 @@ const Navbar: FC = () => {
                         </li>
                         <li className="max-lg:border-b max-lg:py-3 px-3">
                             <NavLink
-                                to="/contact-us"
+                                to="/contact"
                                 className={({ isActive }) =>
                                     isActive ? "nav-link active" : "nav-link"
                                 }

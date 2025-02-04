@@ -1,4 +1,4 @@
-import logo from "@/assets/image/logo/logo-dark.png";
+import logo from "@/assets/image/logo-light.png";
 import { Dispatch, FC, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import SideBarMenuItem from "./dashSidebarMenuItem";
@@ -42,16 +42,16 @@ const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
               <SidebarSubMenu
                 menu={{
                   name: "Cars",
-                  icon: "car",
+                  icon: "Car",
                 }}
                 subMenu={[
                   {
                     name: "Create Car",
-                    path: "/dashboard/create-car",
+                    path: "/dashboard/create-cars",
                   },
                   {
                     name: "All Cars",
-                    path: "/dashboard/bikes",
+                    path: "/dashboard/cars",
                   },
                 ]}
               ></SidebarSubMenu>
@@ -62,7 +62,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                   path: "/dashboard/orders",
                 }}
               />
-           
+
               <SideBarMenuItem
                 menu={{
                   name: "Users",

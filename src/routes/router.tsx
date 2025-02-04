@@ -1,6 +1,11 @@
+import DashboardLayout from "@/components/layout/dashboardLayout";
 import MainLayout from "@/components/layout/mainLayout";
+import ProtectedRoute from "@/components/layout/protectedRoutes";
 import About from "@/pages/About";
+import CreateCar from "@/pages/admin/CreateCar";
+import CarDetails from "@/pages/CarDetails";
 import Cars from "@/pages/Cars";
+import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
@@ -26,6 +31,10 @@ const router=createBrowserRouter([
                 element: <Cars />,
             },
             {
+                path: "/cars/:carId",
+                element: <CarDetails />,
+            },
+            {
                 path: "/login",
                 element: <Login />,
             },
@@ -33,11 +42,41 @@ const router=createBrowserRouter([
                 path: "/register",
                 element: <Register />,
             },
-            // {
-            //     path: "/profile",
-            //     element: <prtero role="user"><Profile /></ProtectedRoute>,
-            // },
+            {
+                path: "/contact",
+                element: <Contact></Contact>,
+            },
         ]
-    }
+    },
+    {
+        path: "/dashboard",
+        element: (
+            <ProtectedRoute role="admin">
+                <DashboardLayout />
+            </ProtectedRoute>
+        ),
+        children: [
+            {
+                path: "create-cars",
+                element: <CreateCar />,
+            },
+            {
+                path: "cars",
+                element: <Cars />,
+            },
+            // {
+            //     path: "users",
+            //     element: <ManageUsers />,
+            // },
+            // {
+            //     path: "profile",
+            //     element: <DashProfile />,
+            // },
+            // {
+            //     path: "orders",
+            //     element: <ManageRentals />,
+            // },
+        ],
+    },
 ])
 export default router

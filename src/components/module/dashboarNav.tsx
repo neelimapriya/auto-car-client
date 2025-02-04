@@ -92,6 +92,7 @@ const DashNavbar: FC<DashNavbarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                                         src={userData?.avatar}
                                         alt={userData?.name}
                                     />
+                                    
                                     <AvatarFallback>
                                         {userData?.name.split("")[0]}
                                     </AvatarFallback>

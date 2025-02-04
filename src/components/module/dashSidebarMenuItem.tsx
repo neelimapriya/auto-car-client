@@ -20,14 +20,16 @@ const SideBarMenuItem: FC<SideBarMenuItemProps> = ({ menu }) => {
   const { pathname } = useLocation();
 
   return (
-    <li className="py-0.5 ">
+    <li className="py-0.5 text-white">
       <NavLink
         to={path}
         className={pathname === path ? "sideLinkActive" : "sideLink"}
       >
+       
         {IconComponent && <IconComponent size={20} />}
         {name}
       </NavLink>
+     
     </li>
   );
 };

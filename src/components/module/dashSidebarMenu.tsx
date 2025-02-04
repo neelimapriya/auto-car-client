@@ -23,7 +23,8 @@ const SidebarSubMenu: FC<SidebarSubMenuProps> = ({ menu, subMenu }) => {
         size?: number;
     }>;
     return (
-        <li>
+        <li className="text-white ">
+         
             <button
                 className="dropdownSideBar"
                 onClick={() => setDropdownOpen(!dropdownOpen)}

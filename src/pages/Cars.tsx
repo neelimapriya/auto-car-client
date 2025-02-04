@@ -23,7 +23,7 @@ const Cars = () => {
             >
                  <div className="h-48 overflow-hidden rounded-md">
                                     <img
-                                        src="https://carhaat.com.bd/upload/car_images/1822494498936614.jpg"
+                                        src={car?.image ? car.image : "https://carhaat.com.bd/upload/car_images/1822494498936614.jpg"}
                                         alt={car.brand}
                                         width={400}
                                         height={400}
@@ -70,7 +70,7 @@ const Cars = () => {
                   </Badge>
                 )}
                 <Button variant={"outline"} size={"sm"} asChild>
-                  <Link to={`/bike-details/${car._id}`}>View Details</Link>
+                  <Link to={`/cars/${car._id}`}>View Details</Link>
                 </Button>
               </div>
             </div>

@@ -39,3 +39,19 @@ export type TQueryParam = {
   name: string;
   value: boolean | React.Key;
 };
+export interface ErrorSource {
+  path: string;
+  message: string;
+}
+
+export interface ErrorResponseData {
+  status: boolean;
+  message: string;
+  errorSources: ErrorSource[];
+  stack?: string;
+}
+
+export interface ErrorResponse {
+  data: ErrorResponseData;
+  status: boolean;
+}
