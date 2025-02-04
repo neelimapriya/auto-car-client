@@ -33,6 +33,10 @@ const router=createBrowserRouter([
                 path: "/register",
                 element: <Register />,
             },
+            // {
+            //     path: "/profile",
+            //     element: <prtero role="user"><Profile /></ProtectedRoute>,
+            // },
         ]
     }
 ])

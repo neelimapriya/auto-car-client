@@ -13,7 +13,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm<formValues>();
   const [createUser, { isSuccess, isLoading, isError, error }] =
@@ -46,13 +46,13 @@ const Register = () => {
         <div className="mx-auto w-full max-w-md space-y-8">
           <div>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
-              Register for Ready Ride
+              Register for Auto Car
             </h2>
             <p className="mt-2 text-center text-sm text-muted-foreground">
-              Create an account to booking bike
+              Create an account to order cars
             </p>
           </div>
-          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+          <form className="space-y-6 " onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Label htmlFor="name" className="sr-only">
                 Name
@@ -95,7 +95,7 @@ const Register = () => {
                 </p>
               )}
             </div>
-            <div>
+            <div >
               <Label htmlFor="password" className="sr-only">
                 Password
               </Label>
@@ -112,73 +112,8 @@ const Register = () => {
                   },
                 })}
               />
-              {/* {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.password.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <Label htmlFor="confirm-password" className="sr-only">
-                Confirm Password
-              </Label>
-              <Input
-                id="confirm-password"
-                type="password"
-                autoComplete="new-password"
-                placeholder="Confirm password"
-                {...register("confirmPassword", {
-                  required: "Please confirm your password",
-                  validate: (value) =>
-                    value === password || "Passwords do not match",
-                })}
-              />
-              {errors.confirmPassword && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.confirmPassword.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <Label htmlFor="phone" className="sr-only">
-                Phone
-              </Label>
-              <Input
-                id="phone"
-                type="text"
-                autoComplete="phone"
-                placeholder="Phone Number"
-                {...register("phone", {
-                  required: "Phone is required",
-                })}
-              />
-              {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.phone.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <Label htmlFor="address" className="sr-only">
-                Address
-              </Label>
-              <Input
-                id="address"
-                type="text"
-                autoComplete="address"
-                placeholder="Address"
-                {...register("address", {
-                  required: "Address is required",
-                })}
-              />
-              {errors.address && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.address.message}
-                </p>
-              )}
-            </div>
-            <div> */}
-              <Button type="submit" className="w-full" disabled={isLoading}>
+           
+              <Button type="submit" className="w-full mt-5" disabled={isLoading}>
                 {isLoading ? "Processing ... " : "Sign Up"}
               </Button>
             </div>
