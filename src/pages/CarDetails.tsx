@@ -1,16 +1,25 @@
 import Loading from "@/components/module/loading";
 import { Badge } from "@/components/ui/badge";
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { Button } from "@/components/ui/button";
 import { useGetSingleCarQuery } from "@/redux/features/cars/carApi";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 
 import { ShoppingCart } from "lucide-react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { toast } from "sonner";
+import { useCurrentToken } from "@/redux/features/auth/authSlice";
+import { verifyToken } from "@/utils/verifyToken";
 
 const CarDetails = () => {
   const dispatch = useAppDispatch();
+  const token = useAppSelector(useCurrentToken);
+
+  let user;
+  if (token) {
+    user = verifyToken(token);
+  }
+ 
   const { carId } = useParams();
   const {
     data: car,
@@ -105,13 +114,20 @@ const CarDetails = () => {
               <span>Price:</span>
               <span className="text-xl">${car?.result?.price}</span>
             </div>
-            <Button
+            {
+              user?.role == "admin" ? 
+              <Button variant={"outline"} size={"sm"} asChild>
+              <Link to={`/dashboard/update-car/${carId}`}>Update Car</Link>
+            </Button>:
+               <Button
               onClick={() => handleAddToCart()}
               disabled={!car?.result?.inStock}
               className="w-full md:w-auto"
             >
               <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
             </Button>
+            }
+            
           </div>
         </div>
       </div>

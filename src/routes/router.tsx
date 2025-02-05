@@ -3,6 +3,7 @@ import MainLayout from "@/components/layout/mainLayout";
 import ProtectedRoute from "@/components/layout/protectedRoutes";
 import About from "@/pages/About";
 import CreateCar from "@/pages/admin/CreateCar";
+import UpdateCar from "@/pages/admin/updateCar";
 import CarDetails from "@/pages/CarDetails";
 import Cars from "@/pages/Cars";
 import Contact from "@/pages/Contact";
@@ -63,6 +64,10 @@ const router=createBrowserRouter([
             {
                 path: "cars",
                 element: <Cars />,
+            },
+            {
+                path: "update-car/:id",
+                element: <UpdateCar/>,
             },
             // {
             //     path: "users",

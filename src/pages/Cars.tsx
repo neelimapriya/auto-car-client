@@ -6,7 +6,6 @@ import { Link } from "react-router";
 
 const Cars = () => {
   const { data: cars } = useGetAllCarsQuery(undefined);
-  console.log(cars);
 
   return (
     <div>

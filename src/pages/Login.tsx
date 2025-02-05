@@ -68,7 +68,6 @@ const Login = () => {
               <Input
                 id="email"
                 type="email"
-                // autoComplete="email"
                 placeholder="Email address"
                 {...register("email", {
                   required: "Email is required",
