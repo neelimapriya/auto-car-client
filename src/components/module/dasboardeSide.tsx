@@ -51,7 +51,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
                   },
                   {
                     name: "All Cars",
-                    path: "/dashboard/cars",
+                    path: "/dashboard/allCars",
                   },
                 ]}
               ></SidebarSubMenu>

@@ -33,12 +33,13 @@ type CarValues = {
 
 const UpdateCarForm = () => {
   const { id } = useParams();
+  console.log(id);
   const navigate = useNavigate();
   const [updateImg, setUpdateImg] = useState<string | null>(null);
 
   const [updateCar, { isSuccess, isError, error }] = useUpdateCarsMutation();
   const { data: car, isLoading } = useGetSingleCarQuery(id as string);
-
+console.log(car);
   // default values
   const form = useForm<CarValues>({
     defaultValues: {
@@ -54,17 +55,17 @@ const UpdateCarForm = () => {
   });
 
   useEffect(() => {
-    if (car?.result) {
+    if (car?.data) {
       form.reset({
-        brand: car?.result?.brand,
-        model: car?.result?.model,
-        year: car?.result?.year.toString(),
-        price: car?.result?.price.toString(),
-        category: car?.result?.category,
-        description: car?.result?.description,
-        quantity: car?.result?.quantity.toString(),
+        brand: car?.data?.brand,
+        model: car?.data?.model,
+        year: car?.data?.year.toString(),
+        price: car?.data?.price.toString(),
+        category: car?.data?.category,
+        description: car?.data?.description,
+        quantity: car?.data?.quantity.toString(),
       });
-      setUpdateImg(car.result.image); 
+      setUpdateImg(car.data.image); 
     }
   }, [car, form]);
 
@@ -258,7 +259,7 @@ const UpdateCarForm = () => {
           )}
         />
 
-        <Button type="submit">Update Car</Button>
+        <Button type="submit" className="w-1/2 ">Update Car</Button>
       </form>
     </Form>
   );

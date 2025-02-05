@@ -2,6 +2,7 @@ import DashboardLayout from "@/components/layout/dashboardLayout";
 import MainLayout from "@/components/layout/mainLayout";
 import ProtectedRoute from "@/components/layout/protectedRoutes";
 import About from "@/pages/About";
+import ManageDashboardCarTable from "@/pages/admin/allCarsDashboard";
 import CreateCar from "@/pages/admin/CreateCar";
 import UpdateCar from "@/pages/admin/updateCar";
 import CarDetails from "@/pages/CarDetails";
@@ -62,8 +63,8 @@ const router=createBrowserRouter([
                 element: <CreateCar />,
             },
             {
-                path: "cars",
-                element: <Cars />,
+                path: "allCars",
+                element: <ManageDashboardCarTable />,
             },
             {
                 path: "update-car/:id",

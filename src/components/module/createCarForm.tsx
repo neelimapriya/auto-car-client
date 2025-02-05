@@ -53,18 +53,18 @@ const CreateCarForm = () => {
       toast.success("Car Successfully Added");
       form.reset();
     }
-  }, [isError, isSuccess, error]);
+  }, [isError, isSuccess, error, form]);
   console.log(error);
 
   const onSubmit = async (data: CarValues) => {
     const creatingToast = toast.loading("Uploading car...");
 
     const carData = {
-      brand: data.brand,
-      model: data.model,
+      brand: (data.brand),
+      model: (data.model),
       year: Number(data.year),
       price: Number(data.price),
-      category: data.category,
+      category: (data.category),
       description: data.description,
       quantity: Number(data.quantity),
     };
