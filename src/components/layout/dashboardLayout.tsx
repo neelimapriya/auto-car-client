@@ -13,6 +13,7 @@ const DashboardLayout: FC = () => {
     }, [location]);
     return (
         <div className="flex h-screen">
+        
             <Sidebar
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}

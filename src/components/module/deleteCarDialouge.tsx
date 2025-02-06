@@ -26,7 +26,7 @@ const DeleteCarDialog = ({
     open,
     onClose,
 }: DeleteCarDialogProps) => {
-    const [deleteCar, { isSuccess, isError, error }] = useDeleteCarsMutation(); // Make sure to use the correct mutation
+    const [deleteCar, { isSuccess, isError, error }] = useDeleteCarsMutation(); 
 
     useEffect(() => {
         if (isError) {

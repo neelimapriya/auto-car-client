@@ -38,7 +38,7 @@ const Cars: FC = () => {
     setSelectedAvailability(undefined);
     setSearch(undefined);
   };
-
+console.log(allCars);
   return (
     <div className="container py-12 mx-auto">
       <div className="rounded-lg px-2.5 py-5 md:px-6">
@@ -73,8 +73,8 @@ const Cars: FC = () => {
         </div>
         <hr className="py-2" />
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {allCars?.data?.data?.length !== 0 ? (
-            allCars?.data?.data?.map((car, index) => (
+          {allCars?.data?.length !== 0 ? (
+            allCars?.data?.map((car, index) => (
               <div
                 className="border hover:border-primary transition-all transform duration-500 ease-in-out rounded-xl px-2.5 py-3"
                 key={index}

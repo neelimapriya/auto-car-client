@@ -1,25 +1,16 @@
 import Loading from "@/components/module/loading";
 import { Badge } from "@/components/ui/badge";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useAppDispatch } from "@/redux/hook";
 import { Button } from "@/components/ui/button";
 import { useGetSingleCarQuery } from "@/redux/features/cars/carApi";
 import { addToCart } from "@/redux/features/cart/cartSlice";
 
 import { ShoppingCart } from "lucide-react";
-import { Link, useParams } from "react-router";
+import {  useParams } from "react-router";
 import { toast } from "sonner";
-import { useCurrentToken } from "@/redux/features/auth/authSlice";
-import { verifyToken } from "@/utils/verifyToken";
 
 const CarDetails = () => {
   const dispatch = useAppDispatch();
-  const token = useAppSelector(useCurrentToken);
-
-  let user;
-  if (token) {
-    user = verifyToken(token);
-  }
-
   const { carId } = useParams();
   const {
     data: car,
@@ -114,24 +105,14 @@ const CarDetails = () => {
               <span>Price:</span>
               <span className="text-xl">${car?.data?.price}</span>
             </div>
-            {user?.role == "admin" ? (
-              <div className="flex justify-evenly md:flex-col md:space-y-4">
-                <Button variant={"outline"} size={"sm"} asChild>
-                  <Link to={`/dashboard/update-car/${carId}`}>Update Car</Link>
-                </Button>
-                <Button variant={"outline"} size={"sm"} asChild>
-                  <Link to={`/dashboard/update-car/${carId}`}>Update Car</Link>
-                </Button>
-              </div>
-            ) : (
-              <Button
-                onClick={() => handleAddToCart()}
-                disabled={!car?.data?.inStock}
-                className="w-full md:w-auto"
-              >
-                <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
-              </Button>
-            )}
+
+            <Button
+              onClick={() => handleAddToCart()}
+              disabled={!car?.data?.inStock}
+              className="w-full md:w-auto"
+            >
+              <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+            </Button>
           </div>
         </div>
       </div>
