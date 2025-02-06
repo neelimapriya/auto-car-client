@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-black">
       <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center text-gray-800">
           Welcome Back
@@ -55,7 +55,7 @@ const Login = () => {
           Sign in to your account
         </p>
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
-          <div>
+          <div className="text-black">
             <Label htmlFor="email">Email Address</Label>
             <Input
               id="email"
@@ -76,9 +76,9 @@ const Login = () => {
               </p>
             )}
           </div>
-          <div>
+          <div className="text-black">
             <Label htmlFor="password">Password</Label>
-            <Input
+            <Input 
               id="password"
               type="password"
               placeholder="Enter your password"

@@ -30,12 +30,7 @@ export const orderSlice = createSlice({
             state.isBooking = isBooking;
         },
 
-        // removeRentalData: (state) => {
-        //     state.bikeId = null;
-        //     state.startTime = null;
-        //     state.amount = null;
-        //     state.isBooking = null;
-        // },
+      
     },
 });
 

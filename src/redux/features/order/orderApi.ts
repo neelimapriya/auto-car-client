@@ -66,8 +66,9 @@ const transactionApi = baseApi.injectEndpoints({
           url: "/orders/revenue",
           method: "GET",
         }),
-        providesTags: ["orders"],
+        providesTags: (result) => result ? ["orders"] : [],
       }),
+      
     }),
   });
 

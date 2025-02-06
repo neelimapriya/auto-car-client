@@ -1,51 +1,100 @@
-# React + TypeScript + Vite
+# Car Shop Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Car Shop application is an e-commerce platform that allows users to browse, search, and purchase cars online. The platform includes secure authentication, role-based access, and a responsive UI for an enhanced user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### 1. User Registration & Authentication
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Secure Registration & Login**
+  - Users can register with name, email, and password.
+  - Passwords are securely hashed before storage.
+  - Default role: `user`.
+- **JWT Authentication**
+  - A JWT token is generated when login.
+  - The token is stored in local storage to maintain sessions.
+- **Logout**
+  - Token is cleared from local storage when logout.
 
-- Configure the top-level `parserOptions` property like this:
+### 2. Private Routes
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Checkout Page**
+  - Users can place orders.
+  - Order quantity must not exceed stock availability.
+  - Order Form: Product details, user details, total price calculation, and payment method.
+  - Payment Integration: Uses Stipe as the payment gateway.
+  - "Confirm Order" button to confirm the purchase.
+- **Dashboard (Role-Based Access)**
+  - **Admin Dashboard:**
+    - Manage users (deactivate accounts).
+    - Manage products (CRUD operations).
+    - Manage orders (CRUD operations).
+  - **User Dashboard:**
+    - View orders.
+    - Manage profile settings.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 3. UI/UX Design
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Responsive Design**
+  - Fully functional across all screen sizes.
+  - Proper alignment, typography, and intuitive layouts.
+- **Error Handling**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# vite-react-tailwindcss-shadcn-project-starter
+  - User-friendly error messages for:
+    - Invalid login credentials.
+    - Registration errors (duplicate email, etc.).
+    - Failed operations (e.g., out-of-stock products).
+
+- **Toasts**
+  - use sooner for toast
+
+## Recommendation Functionalities (Optional)
+
+## Installation & Setup
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Node.js
+- MongoDB
+- npm or yarn
+
+### Steps to Run the Project
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/yourusername/car-shop.git
+   cd car-shop
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Set up environment variables:
+
+   - Create a `.env` file in the root directory.
+   - Add the following values:
+
+     ```env
+
+     ```
+
+4. Start the frontend:
+   ```sh
+   npm run dev
+   ```
+
+## Technologies Used
+
+- **Frontend:** React.js, Tailwind CSS, shdcn.ui
+- **Backend:** Node.js, Express.js,mongoose
+- **Database:** MongoDB
+- **Authentication:** JWT
+- **Payment Gateway:** Stripe

@@ -6,6 +6,7 @@ export type TOrder ={
     car:TCar|  null | undefined;
     quantity: number;
     totalPrice: number;
+   orderPayment: 'paid' | 'unpaid'
     createdAt: Date;
     updatedAt: Date;
   }

@@ -1,23 +1,37 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Loading from "@/components/module/loading";
 import { Badge } from "@/components/ui/badge";
-import { useAppDispatch } from "@/redux/hook";
 import { Button } from "@/components/ui/button";
 import { useGetSingleCarQuery } from "@/redux/features/cars/carApi";
-import { addToCart } from "@/redux/features/cart/cartSlice";
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { ShoppingCart } from "lucide-react";
-import {  useParams } from "react-router";
+import { useParams } from "react-router";
 import { toast } from "sonner";
+import { usePlaceOrderMutation } from "@/redux/features/order/orderApi";
+import { useAppSelector } from "@/redux/hook";
+import { useState } from "react";
 
 const CarDetails = () => {
-  const dispatch = useAppDispatch();
   const { carId } = useParams();
+  const user = useAppSelector((state) => state.auth.user);
+  // console.log(user);
+  const email = user?.email;
+  // console.log(carId);
   const {
     data: car,
     isLoading,
     isError,
   } = useGetSingleCarQuery(carId as unknown as string);
-  console.log(car);
+  const [confirmOrder] = usePlaceOrderMutation();
+  const [isOpen, setIsOpen] = useState(false);
   if (isError) {
     toast.error("Something went wrong!");
   }
@@ -26,19 +40,23 @@ const CarDetails = () => {
     return <Loading></Loading>;
   }
 
-  const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        car: car.data?._id,
-        brand: car.data?.brand,
-        price: car.data?.price,
+  const handleOrder = async () => {
+    try {
+      const payload = {
+        car: carId,
         quantity: 1,
-        inStock: car.data?.inStock,
-        image: car.data?.image,
-      }),
-      toast.success("Add in cart")
-    );
+        email: email,
+        totalPrice: car?.data?.price,
+      };
+      await confirmOrder(payload).unwrap();
+      toast.success("Order placed successfully!");
+      setIsOpen(false);
+    } catch (err) {
+      toast.error("Failed to place order.");
+    }
   };
+  // console.log(error);
+
   return (
     <div className="container">
       <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start mx-auto py-6">
@@ -105,14 +123,26 @@ const CarDetails = () => {
               <span>Price:</span>
               <span className="text-xl">${car?.data?.price}</span>
             </div>
-
-            <Button
-              onClick={() => handleAddToCart()}
-              disabled={!car?.data?.inStock}
-              className="w-full md:w-auto"
-            >
-              <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
-            </Button>
+            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+              <DialogTrigger asChild>
+                <Button variant="default" onClick={() => setIsOpen(true)}>
+                  <ShoppingCart></ShoppingCart> Order car
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Order Car</DialogTitle>
+                  <DialogDescription>
+                    Are you sure you want to order this car {car?.data?.model}?
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                  <Button disabled={!car?.data?.inStock} onClick={handleOrder}>
+                    Confirm Order
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

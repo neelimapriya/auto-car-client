@@ -4,7 +4,7 @@ import Loading from "@/components/module/loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useFetchOrdersQuery } from "@/redux/features/order/orderApi";
+import { useFetchOrdersQuery, useGetTotalRevenueQuery } from "@/redux/features/order/orderApi";
 import { ColumnDef } from "@tanstack/react-table";
 import { FC, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -21,8 +21,8 @@ const ManageDashboardOrdersTable: FC = () => {
     { name: "page", value: page || 1 },
     { name: "searchTerm", value: search || "" },
   ]);
-  
-
+  const {data:revenue}=useGetTotalRevenueQuery(undefined)
+console.log(revenue);
   useEffect(() => {
     if (isError) {
       toast.error("Something Went Wrong");

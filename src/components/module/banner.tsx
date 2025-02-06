@@ -1,63 +1,55 @@
 import bannerImg from "@/assets/image/banner2.png";
-import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router";
+import { useEffect, useState } from "react";
+
 const Banner = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setFadeIn(true), 500);
+  }, []);
+
   return (
-    <AnimatePresence>
-      <section
-        className={`relative bg-cover bg-right  sm:bg-center bg-no-repeat   `}
-        style={{ backgroundImage: `url(${bannerImg})` }}
-      >
-        <div
-          className="absolute inset-0
-     bg-gray-700/75 sm:bg-gradient-to-r sm:bg-transparent sm:from-gray-700/85 sm:to-gray-700/15
-       "
-        ></div>
-        <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-          <div className="max-w-xl">
-            <motion.h1
-              whileInView={{ opacity: [0, 1], x: [-20, 0] }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-3xl font-extrabold text-white sm:text-5xl"
-            >
-              IT'S TIME TO
-              <small className="block font-serif text-rose-700   "> Accelerate</small>
-              <strong className="text-3xl font-extrabold text-white sm:text-5xl">
-                Your Dreams
-              </strong>
-            </motion.h1>
+    <section
+      className="relative flex items-center justify-center h-screen bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+      style={{ backgroundImage: `url(${bannerImg})`, opacity: fadeIn ? 1 : 0 }}
+    >
+      <div className="absolute inset-0 bg-gray-900/70 backdrop-blur-sm"></div>
+      <div className="relative text-center px-6 sm:px-12 lg:px-20 max-w-3xl">
+        <h1
+          className="text-4xl sm:text-5xl font-extrabold text-white transition-transform duration-1000 transform"
+          style={{ transform: fadeIn ? "translateY(0)" : "translateY(-20px)" }}
+        >
+          IT'S TIME TO
+          <span className="block font-serif text-rose-600"> Accelerate</span>
+          <strong className="block text-4xl sm:text-5xl text-white">Your Dreams</strong>
+        </h1>
 
-            <motion.p
-              whileInView={{ opacity: [0, 1], x: [-20, 0] }}
-              transition={{ duration: 0.9, delay: 0.6 }}
-              className=" capitalize  mt-4 max-w-lg text-white text-base sm:text-xs/relaxed"
-            >
-              Where your dreams meet affordability. if you are looking for a used, cost-effective, enchanting car, <strong className="inline-block rounded-sm bg-muted px-1 font-serif text-rose-700 ">AUTO CAR </strong> is here for you.
-            </motion.p>
+        <p
+          className="mt-4 text-lg text-gray-300 transition-opacity duration-1000"
+          style={{ opacity: fadeIn ? 1 : 0 }}
+        >
+          Where your dreams meet affordability. If you are looking for a used, cost-effective, enchanting car, 
+          <span className="inline-block px-2 bg-gray-800 text-rose-600 font-serif rounded-md">AUTO CAR</span> is here for you.
+        </p>
 
-            <motion.div
-              whileInView={{ opacity: [0, 1], x: [-20, 0] }}
-              transition={{ duration: 1, delay: 1 }}
-              className="mt-8 flex flex-wrap gap-4 text-center"
-            >
-              <Link
-                to="/bikes"
-                className="block w-full rounded bg-primary px-12 py-3 text-sm font-medium text-white dark:text-black shadow hover:bg-primary/90 focus:outline-none focus:ring active:bg-primary sm:w-auto"
-              >
-               Explore
-              </Link>
-
-              <button
-                // onClick={handleSearchClick}
-                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-primary shadow dark:bg-black  hover:text-primary/90 focus:outline-none focus:ring active:text-primary sm:w-auto"
-              >
-                Search Car
-              </button>
-            </motion.div>
-          </div>
+        <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 transition-opacity duration-1000"
+          style={{ opacity: fadeIn ? 1 : 0 }}
+        >
+          <Link
+            to="/cars"
+            className="px-8 py-3 rounded-lg bg-rose-600 text-white font-medium shadow-lg hover:bg-rose-700 transition"
+          >
+            Explore
+          </Link>
+          <Link to='/about'
+            className="px-8 py-3 rounded-lg bg-white text-rose-600 font-medium shadow-lg hover:bg-gray-100 transition"
+          >
+            About Auto Car
+          </Link>
         </div>
-      </section>
-    </AnimatePresence>
+      </div>
+    </section>
   );
 };
 

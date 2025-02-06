@@ -10,6 +10,7 @@ import UpdateCar from "@/pages/admin/updateCar";
 import CarDetails from "@/pages/CarDetails";
 import Cars from "@/pages/Cars";
 import Contact from "@/pages/Contact";
+import MyOrderPage from "@/pages/dasboard/myOrderPage";
 import Profile from "@/pages/dasboard/profile";
 import ErrorPage from "@/pages/error/error";
 import Home from "@/pages/Home";
@@ -52,8 +53,12 @@ const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
-        path: "profile",
+        path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/my-orders/:email",
+        element: <MyOrderPage />,
       },
     ],
   },

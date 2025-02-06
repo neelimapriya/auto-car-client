@@ -4,10 +4,12 @@ import { DataTable } from "@/components/module/dataTable";
 import Loading from "@/components/module/loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { ColumnDef } from '@tanstack/react-table';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { LucideMoreVertical } from 'lucide-react';
+import DeleteUserModal from '@/components/module/deleteUserdialouge';
 
 const ManageUsers = () => {
     const [search, setSearch] = useState<string | undefined>(undefined);
@@ -62,14 +64,24 @@ const ManageUsers = () => {
       cell: ({ row }) => new Date(row.original.updatedAt).toLocaleDateString(),
     },
     {
-      accessorKey: "action",
-      header: "Action",
-      cell: ({ row }) => (
-        <Button variant="outline" onClick={() => handleDeleteUser(row.original)}>
-          Delete User
-        </Button>
-      ),
-    },
+        accessorKey: "action",
+        header: "Action",
+        cell: ({ row }) => (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" className="hover:bg-gray-200">
+                <LucideMoreVertical size={20} />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-white shadow-lg rounded-lg">
+           
+              <DropdownMenuItem onClick={() => handleDeleteUser(row.original)} className="text-red-500 hover:underline">
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ),
+      },
   ];
 
   if (isLoading) {
@@ -95,26 +107,7 @@ const ManageUsers = () => {
         meta={data?.meta ?? { page: 1, limit: 10, totalPage: 1, total: 0 }}
       />
 
-      <Dialog open={confirmDialogOpen} onOpenChange={setConfirmDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Delete User</DialogTitle>
-          </DialogHeader>
-          <p>Are you sure you want to delete user {selectedUser?.name}?</p>
-          <DialogFooter>
-            <Button variant="secondary" onClick={() => setConfirmDialogOpen(false)}>Cancel</Button>
-            <Button
-              variant="destructive"
-              onClick={() => {
-                toast.success(`User ${selectedUser?.name} deleted successfully!`);
-                setConfirmDialogOpen(false);
-              }}
-            >
-              Delete
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+<DeleteUserModal user={selectedUser} open={confirmDialogOpen} onClose={() => setConfirmDialogOpen(false)} />
     </>
   );
 };

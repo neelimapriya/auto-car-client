@@ -1,4 +1,5 @@
 import banner from "@/assets/image/about-bg.jpg";
+import ReviewsPage from "@/components/module/reviews";
 
 const About = () => {
   return (
@@ -41,6 +42,7 @@ const About = () => {
          
         </div>
       </div>
+      <ReviewsPage></ReviewsPage>
     </section>
   );
 };

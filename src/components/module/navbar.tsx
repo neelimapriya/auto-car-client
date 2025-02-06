@@ -19,7 +19,7 @@ const Navbar: FC = () => {
 
   const token = useAppSelector((state) => state.auth.token);
   const user = useAppSelector((state) => state.auth.user);
-  const role = user?.role; // Extract user role
+  const role = user?.role;
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -78,8 +78,8 @@ const Navbar: FC = () => {
                       <NavLink to="/profile" className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
                         Profile
                       </NavLink>
-                      <NavLink to="/orders" className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
-                        Orders
+                      <NavLink to={`/my-orders/${user?.email}`} className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
+                        My Orders
                       </NavLink>
                     </>
                   )}
@@ -92,10 +92,10 @@ const Navbar: FC = () => {
             </div>
           ) : (
             <>
-              <Button asChild variant="outline" className="text-white border-white">
+              <Button asChild variant="outline" className="text-black dark:text-white border-white">
                 <Link to="/login">Login</Link>
               </Button>
-              <Button asChild variant="outline" className="text-white border-white">
+              <Button asChild variant="outline" className="text-black dark:text-white border-white">
                 <Link to="/register">Register</Link>
               </Button>
             </>
@@ -156,9 +156,9 @@ const Navbar: FC = () => {
                           <NavLink to="/profile" className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
                             Profile
                           </NavLink>
-                          <NavLink to="/orders" className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
-                            Orders
-                          </NavLink>
+                          <NavLink to={`/my-orders/${user?.email}`} className="block text-gray-700 hover:text-red-700 py-2" onClick={() => setIsDropdownOpen(false)}>
+                        My Orders
+                      </NavLink>
                         </>
                       )}
 

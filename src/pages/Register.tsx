@@ -41,11 +41,11 @@ const Register = () => {
   // const password = watch("password");
 
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background">
-      <div className="container mx-auto flex flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-black">
+      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
         <div className="mx-auto w-full max-w-md space-y-8">
-          <div>
-            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-foreground">
+          <div className="">
+            <h2 className="mt-6 text-center text-3xl font-bold tracking-tight  text-black">
               Register for Auto Car
             </h2>
             <p className="mt-2 text-center text-sm text-muted-foreground">
@@ -53,7 +53,7 @@ const Register = () => {
             </p>
           </div>
           <form className="space-y-6 " onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <div className="text-black">
               <Label htmlFor="name" className="sr-only">
                 Name
               </Label>
@@ -72,7 +72,7 @@ const Register = () => {
                 </p>
               )}
             </div>
-            <div>
+            <div className="text-black">
               <Label htmlFor="email" className="sr-only">
                 Email address
               </Label>
@@ -95,7 +95,7 @@ const Register = () => {
                 </p>
               )}
             </div>
-            <div >
+            <div className="text-black">
               <Label htmlFor="password" className="sr-only">
                 Password
               </Label>
