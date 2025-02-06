@@ -16,6 +16,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const location = useLocation();
+  const toastId= toast.loading('Logging in')
   const from = location?.state?.from?.pathname || "/";
   const {
     register,
@@ -34,7 +35,7 @@ const Login = () => {
 
       toast.error(errorMessage);
     } else if (isSuccess) {
-      toast.success("User Logged In Successfully");
+      toast.success("Logged in",{id:toastId, duration:2000})
       navigate(from);
     }
   }, [error, from, isError, isSuccess, navigate]);
