@@ -67,7 +67,7 @@ Ensure you have the following installed:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/car-shop.git
+   git clone https://github.com/neelimapriya/car-shop-client.git
    cd car-shop
    ```
 
