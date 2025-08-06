@@ -35,8 +35,8 @@ const Banner = () => {
         <div className="absolute bottom-20 right-10 w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+             {/* Main Content */}
+       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column - Text Content */}
@@ -179,19 +179,19 @@ const Banner = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div 
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1500 ${
-          floatAnimation ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
-      >
-        <div className="flex flex-col items-center gap-2 text-gray-400">
-          <span className="text-sm">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
-          </div>
-        </div>
-      </div>
+             {/* Scroll Indicator */}
+       <div 
+         className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1500 hidden sm:block ${
+           floatAnimation ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+         }`}
+       >
+         <div className="flex flex-col items-center gap-2 text-gray-400">
+           <span className="text-sm">Scroll to explore</span>
+           <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
+             <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
+           </div>
+         </div>
+       </div>
     </section>
   );
 };
