@@ -44,7 +44,7 @@ const Navbar: FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gray-200/20 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-900/95 dark:supports-[backdrop-filter]:bg-gray-900/60">
+    <header className="sticky top-0 z-40 w-full border-b border-gray-200/20 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-black/95 dark:supports-[backdrop-filter]:bg-black/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -120,7 +120,7 @@ const Navbar: FC = () => {
                 </button>
 
                 {isDropdownOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-56 rounded-md border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+                  <div className="absolute right-0 top-full mt-2 w-56 rounded-md border border-gray-200 bg-white py-2 shadow-lg dark:border-gray-800 dark:bg-black/80">
                     <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
                       <p className="text-sm font-medium text-gray-900 dark:text-white">{user?.name}</p>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
@@ -129,7 +129,7 @@ const Navbar: FC = () => {
                     {role === "admin" ? (
                       <NavLink 
                         to="/dashboard" 
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-red-400 transition-colors duration-200" 
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200" 
                         onClick={() => setIsDropdownOpen(false)}
                       >
                         <Settings size={16} className="mr-3" />
@@ -139,7 +139,7 @@ const Navbar: FC = () => {
                       <>
                         <NavLink 
                           to="/profile" 
-                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-red-400 transition-colors duration-200" 
+                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200" 
                           onClick={() => setIsDropdownOpen(false)}
                         >
                           <User size={16} className="mr-3" />
@@ -147,7 +147,7 @@ const Navbar: FC = () => {
                         </NavLink>
                         <NavLink 
                           to={`/my-orders/${user?.email}`} 
-                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-red-400 transition-colors duration-200" 
+                          className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200" 
                           onClick={() => setIsDropdownOpen(false)}
                         >
                           <ShoppingBag size={16} className="mr-3" />
@@ -183,7 +183,7 @@ const Navbar: FC = () => {
           {/* Mobile menu button */}
           <button 
             onClick={() => setIsOpen(true)} 
-            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-red-400 transition-colors duration-200"
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200"
           >
             <LucideMenu size={24} />
           </button>
@@ -194,7 +194,7 @@ const Navbar: FC = () => {
       {isOpen && (
         <div className="fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/50" onClick={() => setIsOpen(false)} />
-          <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 shadow-xl">
+          <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-black shadow-xl">
             <div className="flex h-full flex-col">
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <Link to="/" onClick={() => setIsOpen(false)}>
@@ -202,7 +202,7 @@ const Navbar: FC = () => {
                 </Link>
                 <button 
                   onClick={() => setIsOpen(false)} 
-                  className="rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-red-400 transition-colors duration-200"
+                  className="rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200"
                 >
                   <X size={24} />
                 </button>
@@ -213,7 +213,7 @@ const Navbar: FC = () => {
                    <NavLink 
                      to="/" 
                      className={({ isActive }) => 
-                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-black/60 ${
                          isActive 
                            ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" 
                            : "text-gray-700 dark:text-gray-300"
@@ -226,7 +226,7 @@ const Navbar: FC = () => {
                    <NavLink 
                      to="/cars" 
                      className={({ isActive }) => 
-                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-black/60 ${
                          isActive 
                            ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" 
                            : "text-gray-700 dark:text-gray-300"
@@ -239,7 +239,7 @@ const Navbar: FC = () => {
                    <NavLink 
                      to="/about" 
                      className={({ isActive }) => 
-                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-black/60 ${
                          isActive 
                            ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" 
                            : "text-gray-700 dark:text-gray-300"
@@ -252,7 +252,7 @@ const Navbar: FC = () => {
                    <NavLink 
                      to="/contact" 
                      className={({ isActive }) => 
-                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                       `block text-lg font-medium transition-colors duration-200 hover:text-red-600 dark:hover:text-red-400 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-black/60 ${
                          isActive 
                            ? "text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" 
                            : "text-gray-700 dark:text-gray-300"
@@ -278,7 +278,7 @@ const Navbar: FC = () => {
                       {role === "admin" ? (
                         <NavLink 
                           to="/dashboard" 
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
+                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
                           onClick={() => setIsOpen(false)}
                         >
                           <Settings size={20} className="mr-3" />
@@ -288,7 +288,7 @@ const Navbar: FC = () => {
                         <>
                           <NavLink 
                             to="/profile" 
-                            className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
+                            className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
                             onClick={() => setIsOpen(false)}
                           >
                             <User size={20} className="mr-3" />
@@ -296,7 +296,7 @@ const Navbar: FC = () => {
                           </NavLink>
                           <NavLink 
                             to={`/my-orders/${user?.email}`} 
-                            className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
+                            className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-600 dark:text-gray-300 dark:hover:bg-black/60 dark:hover:text-red-400 transition-colors duration-200 rounded-lg" 
                             onClick={() => setIsOpen(false)}
                           >
                             <ShoppingBag size={20} className="mr-3" />

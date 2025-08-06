@@ -51,7 +51,7 @@ export function FeaturedCars() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-black dark:to-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -89,7 +89,7 @@ export function FeaturedCars() {
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-gray-800">
+                             <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-black/40">
                 <CardContent className="p-0">
                   {/* Image Container */}
                   <div className="relative overflow-hidden">

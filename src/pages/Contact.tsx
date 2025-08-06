@@ -26,7 +26,7 @@ const Contact = () => {
     <div className="container mx-auto px-4 py-10">
       <h2 className="text-center text-2xl font-bold">Contact Us</h2>
       <hr  className="pb-5"/>
-      <div className="p-6 flex flex-col md:flex-row max-w-5xl mx-auto text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-lg">
+              <div className="p-6 flex flex-col md:flex-row max-w-5xl mx-auto text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-black/40 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800">
         <div className="md:w-1/2 p-5">
           <div className="flex items-center mb-4">
             <img src={logo} alt="Auto Car Logo" className="w-16" />
@@ -49,7 +49,7 @@ const Contact = () => {
                 type="text"
                 name="name"
                 placeholder="First and Last Name"
-                className="border p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-md"
+                className="border p-2 bg-white dark:bg-black/60 text-gray-900 dark:text-gray-100 rounded-md"
                 required
               />
             </div>
@@ -59,14 +59,14 @@ const Contact = () => {
                 type="email"
                 name="email"
                 placeholder="Email Address"
-                className="border p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-md"
+                className="border p-2 bg-white dark:bg-black/60 text-gray-900 dark:text-gray-100 rounded-md"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label text-gray-900 dark:text-gray-100">Message</label>
               <Textarea
-                className="border p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-md"
+                className="border p-2 bg-white dark:bg-black/60 text-gray-900 dark:text-gray-100 rounded-md"
                 id="text"
                 name="text"
                 placeholder="Your message..."
