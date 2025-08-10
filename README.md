@@ -1,100 +1,117 @@
 # Car Shop Application
 
+[Live Demo 🚗](https://auto-car-client.vercel.app/)
+[Frontend GitHub Repo](https://github.com/neelimapriya/auto-car-client)
+ [Backend GitHub Repo](https://github.com/neelimapriya/car-shop-backend)
+
+---
+
 ## Overview
 
-The Car Shop application is an e-commerce platform that allows users to browse, search, and purchase cars online. The platform includes secure authentication, role-based access, and a responsive UI for an enhanced user experience.
+Car Shop is a modern e-commerce platform for browsing, searching, and purchasing cars online. It features secure authentication, role-based dashboards, Stripe payment integration, and a responsive, user-friendly UI.
+
+---
 
 ## Features
 
-### 1. User Registration & Authentication
+### 🚘 Car Management
+- Browse, search, and view car details
+- Admins can add, update, or delete cars
 
-- **Secure Registration & Login**
-  - Users can register with name, email, and password.
-  - Passwords are securely hashed before storage.
-  - Default role: `user`.
-- **JWT Authentication**
-  - A JWT token is generated when login.
-  - The token is stored in local storage to maintain sessions.
-- **Logout**
-  - Token is cleared from local storage when logout.
+### 🛒 Order Management
+- Place orders for cars (with stock validation)
+- View and manage orders (admin & user dashboards)
+- Stripe payment integration for secure checkout
 
-### 2. Private Routes
+### 👤 User Authentication & Roles
+- Secure registration & login (JWT-based)
+- Role-based dashboards: User & Admin
+- Profile management
 
-- **Checkout Page**
-  - Users can place orders.
-  - Order quantity must not exceed stock availability.
-  - Order Form: Product details, user details, total price calculation, and payment method.
-  - Payment Integration: Uses Stipe as the payment gateway.
-  - "Confirm Order" button to confirm the purchase.
-- **Dashboard (Role-Based Access)**
-  - **Admin Dashboard:**
-    - Manage users (deactivate accounts).
-    - Manage products (CRUD operations).
-    - Manage orders (CRUD operations).
-  - **User Dashboard:**
-    - View orders.
-    - Manage profile settings.
+### 🖥️ Responsive UI/UX
+- Fully responsive design (mobile, tablet, desktop)
+- Clean, modern interface using React, Tailwind CSS, and shadcn/ui
+- User-friendly error handling and toast notifications
 
-### 3. UI/UX Design
+---
 
-- **Responsive Design**
-  - Fully functional across all screen sizes.
-  - Proper alignment, typography, and intuitive layouts.
-- **Error Handling**
+## Tech Stack
 
-  - User-friendly error messages for:
-    - Invalid login credentials.
-    - Registration errors (duplicate email, etc.).
-    - Failed operations (e.g., out-of-stock products).
+- **Frontend:** React.js, TypeScript, Tailwind CSS, shadcn/ui
+- **Backend:** Node.js, Express.js, TypeScript, Mongoose
+- **Database:** MongoDB
+- **Authentication:** JWT
+- **Payment:** Stripe
 
-- **Toasts**
-  - use sooner for toast
+---
 
-## Recommendation Functionalities (Optional)
-
-## Installation & Setup
+## Getting Started
 
 ### Prerequisites
 
-Ensure you have the following installed:
-
-- Node.js
-- MongoDB
+- Node.js (v16+)
+- MongoDB (local or Atlas)
 - npm or yarn
 
-### Steps to Run the Project
+### Frontend Setup
 
-1. Clone the repository:
+```sh
+git clone https://github.com/neelimapriya/auto-car-client.git
+cd auto-car-client
+npm install
+# Create a .env file as needed
+npm run dev
+```
 
-   ```sh
-   git clone https://github.com/neelimapriya/car-shop-client.git
-   cd car-shop
-   ```
+### Backend Setup
 
-2. Install dependencies:
+See the [car-shop-backend README](https://github.com/neelimapriya/car-shop-backend) for backend setup instructions.
 
-   ```sh
-   npm install
-   ```
+---
 
-3. Set up environment variables:
+## Environment Variables
 
-   - Create a `.env` file in the root directory.
-   - Add the following values:
+Create a `.env` file in both frontend and backend root directories.  
+Frontend example:
+```
+VITE_API_URL=your_backend_api_url
+VITE_STRIPE_PUBLIC_KEY=your_stripe_public_key
+```
+Backend example (see backend repo for details):
+```
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
 
-     ```env
+---
 
-     ```
+## Project Structure
 
-4. Start the frontend:
-   ```sh
-   npm run dev
-   ```
+```
+auto-car-client/
+  ├── public/
+  ├── src/
+  │   ├── assets/
+  │   ├── components/
+  │   ├── pages/
+  │   ├── redux/
+  │   ├── routes/
+  │   └── types/
+  ├── package.json
+  └── ...
+```
 
-## Technologies Used
+---
 
-- **Frontend:** React.js, Tailwind CSS, shdcn.ui
-- **Backend:** Node.js, Express.js,mongoose
-- **Database:** MongoDB
-- **Authentication:** JWT
-- **Payment Gateway:** Stripe
+## Useful Links
+
+- **Live Site:** [auto-car-client.vercel.app](https://auto-car-client.vercel.app/)
+- **Frontend Repo:** [auto-car-client](https://github.com/neelimapriya/auto-car-client)
+- **Backend Repo:** [car-shop-backend](https://github.com/neelimapriya/car-shop-backend)
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
